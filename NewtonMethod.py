@@ -1,7 +1,7 @@
 import random
 
 start = 1
-end = 10
+end = 5
 accuracy = 1e-04
 x0 = random.randrange(start, end)
 
@@ -38,6 +38,7 @@ def IsInequality_2(fF, fDer_2, x0):
 
 
 def NewtonMethod(a, b, eps, fF, fDer_1, fDer_2, x):
+    #проверки применим ли метод Ньютона
     if not IsInequality_1(fF, a, b): return "Problem with first inequality"
     if not IsInequality_2(fF, fDer_2, x): return "Problem with second inequality"
 

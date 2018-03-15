@@ -4,18 +4,18 @@ accuracy = 1e-04
 
 average = lambda a, b: (a + b) / 2
 
-
+#функция
 def func( x ):
     return pow(x, 6) - 5 * pow(x, 3) - 2
 
-
+#погрешность
 def IsSatisfy( x, y ):
     if abs(x - y) <= accuracy:
         return True
     else:
         return False
 
-
+#знаки функции в 2-х точках должны быть равны
 def CheckEndings( f, startpoint, endpoint ):
     if f(startpoint) * f(endpoint) <= 0:
         return True
@@ -23,7 +23,7 @@ def CheckEndings( f, startpoint, endpoint ):
 
 
 def HalfDivision( f, start, end ):
-    if CheckEndings(f, start, end) == False: return "Incorrect endings"
+    if not CheckEndings(f, start, end): return "Incorrect endings"
 
     middle = average(start, end)
     if IsSatisfy(start, end): return middle
@@ -33,7 +33,7 @@ def HalfDivision( f, start, end ):
     else:
         middle = HalfDivision(f, middle, end)
 
-    return round(middle, 3)
+    return round(middle, 4)
 
 
 print(HalfDivision(func, start, end))
