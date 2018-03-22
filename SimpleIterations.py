@@ -4,6 +4,7 @@ start = 0
 end = 10
 accuracy = 1e-04
 
+
 def func(x):
     return((2+5*pow(x,3))**(1/6))
 
